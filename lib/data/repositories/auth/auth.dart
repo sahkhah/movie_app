@@ -17,7 +17,7 @@ class AuthRepositoryImpl extends AuthRepository {
       },
       (data) async {
         final sharedPref = await SharedPreferences.getInstance();
-        sharedPref.setString('token', data['user']['token']);
+        sharedPref.setString('token', data['user']['token'] ?? false);
         return Right(data);
       },
     );
@@ -32,7 +32,7 @@ class AuthRepositoryImpl extends AuthRepository {
       },
       (data) async {
         final sharedPref = await SharedPreferences.getInstance();
-        sharedPref.setString('token', data['user']['token']);
+        sharedPref.setString('token', data['user']['token'] ?? 'No String');
         return Right(data);
       },
     );
@@ -41,7 +41,12 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<bool> isLoggedIn() async {
     final sharedpref = await SharedPreferences.getInstance();
-    if (sharedpref.getString('token') != null) return true;
-    return false;
+    String? token = sharedpref.getString('token');
+   
+    if (token != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
