@@ -6,4 +6,6 @@ abstract class AuthRepository {
   Future<Either> signup(SignupReqParam param);
 
   Future<Either> signIn(SignInReqParam param);
+
+  Future<bool> isLoggedIn();
 }

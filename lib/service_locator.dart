@@ -3,6 +3,7 @@ import 'package:movie_app/core/network/dio_client.dart';
 import 'package:movie_app/data/repositories/auth/auth.dart';
 import 'package:movie_app/data/source/auth/auth_api_service.dart';
 import 'package:movie_app/domain/auth/repository/auth.dart';
+import 'package:movie_app/domain/auth/usecases/is_logged_in.dart';
 import 'package:movie_app/domain/auth/usecases/signin.dart';
 import 'package:movie_app/domain/auth/usecases/signup.dart';
 
@@ -19,10 +20,14 @@ void setUpServiceLocator() {
 
   //Usecase
   sl.registerSingleton<SignupUsecase>(
-    SignupUsecase(authRepository: AuthRepositoryImpl()),
+    SignupUsecase(),
   );
   //Usecase- Signin
   sl.registerSingleton<SignInUsecase>(
-    SignInUsecase(authRepository: AuthRepositoryImpl()),
+    SignInUsecase(),
+  );
+  //Usecase- isLoggedIn
+  sl.registerSingleton<IsLoggedInUsecase>(
+    IsLoggedInUsecase(),
   );
 }
