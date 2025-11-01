@@ -17,7 +17,7 @@ class AuthRepositoryImpl extends AuthRepository {
       },
       (data) async {
         final sharedPref = await SharedPreferences.getInstance();
-        sharedPref.setString('token', data['user']['token'] ?? false);
+        sharedPref.setString('token', data['user']['token'] ?? '123456q2');
         return Right(data);
       },
     );
@@ -32,7 +32,7 @@ class AuthRepositoryImpl extends AuthRepository {
       },
       (data) async {
         final sharedPref = await SharedPreferences.getInstance();
-        sharedPref.setString('token', data['user']['token'] ?? 'No String');
+        sharedPref.setString('token', data['user']['token'] ?? '123456q2');
         return Right(data);
       },
     );
