@@ -1,4 +1,4 @@
-import 'package:movie_app/core/usecase/signin_usecase.dart';
+import 'package:movie_app/core/usecase/usecase.dart';
 import 'package:movie_app/domain/auth/repository/auth.dart';
 import 'package:movie_app/service_locator.dart';
 
