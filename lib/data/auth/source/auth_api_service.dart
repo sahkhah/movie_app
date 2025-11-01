@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/constants/app_url/app_url.dart';
 import 'package:movie_app/core/network/dio_client.dart';
-import 'package:movie_app/data/models/auth/signin_req_param.dart';
-import 'package:movie_app/data/models/auth/signup_req_param.dart';
+import 'package:movie_app/data/auth/models/signin_req_param.dart';
+import 'package:movie_app/data/auth/models/signup_req_param.dart';
 import 'package:movie_app/service_locator.dart';
 
 abstract class AuthApiService {
