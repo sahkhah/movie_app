@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:movie_app/common/widgets/basic_appbar.dart';
 import 'package:movie_app/presentation/home/widgets/category_text.dart';
 import 'package:movie_app/presentation/home/widgets/now_playing_movies.dart';
+import 'package:movie_app/presentation/home/widgets/popular_tv.dart';
 import 'package:movie_app/presentation/home/widgets/trending.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,6 +31,9 @@ class _HomePageState extends State<HomePage> {
                CategoryText(title: 'Now Playing'),
                const SizedBox(height: 20,),
                NowPlayingMovies(),
+               Gap(20),
+               CategoryText(title: 'Popular TV'),
+               PopularTV(),
             ],
           ),
         ),
