@@ -31,5 +31,5 @@ void setUpServiceLocator() {
   //Usecase- isLoggedIn
   sl.registerSingleton<IsLoggedInUsecase>(IsLoggedInUsecase());
   //Usecase- movies
-  sl.registerSingleton<MovieUsecase>(MovieUsecase());
+  sl.registerSingleton<GetTrendingMoviesUsecase>(GetTrendingMoviesUsecase());
 }

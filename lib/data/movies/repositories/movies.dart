@@ -7,9 +7,9 @@ import 'package:movie_app/service_locator.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
   @override
-  Future<Either> getTrending() async {
+  Future<Either> getTrendingMovies() async {
     var returnedData = await sl<MovieApiService>().getTrendingMovies();
-   return returnedData.fold(
+    return returnedData.fold(
       (error) {
         return Left(error);
       },
