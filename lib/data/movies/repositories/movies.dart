@@ -14,7 +14,24 @@ class MovieRepositoryImpl extends MovieRepository {
         return Left(error);
       },
       (data) {
-        var movies =
+              var movies =
+            List.from(data['content']).map((element) {
+              return MovieMapper.toEntity(MovieModel.fromJson(element));
+            }).toList();
+        return Right(movies);
+      },
+    );
+  }
+  
+  @override
+  Future<Either> getNowPlayingMovies() async {
+    var returnedData = await sl<MovieApiService>().getNowPlayingMovies();
+    return returnedData.fold(
+      (error) {
+        return Left(error);
+      },
+      (data) {
+              var movies =
             List.from(data['content']).map((element) {
               return MovieMapper.toEntity(MovieModel.fromJson(element));
             }).toList();

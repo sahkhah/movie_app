@@ -56,29 +56,43 @@ class MovieModel {
   factory MovieModel.fromMap(Map<String, dynamic> map) {
     return MovieModel(
       id: map['id'] != null ? map['id'] as String : null,
+
       title: map['title'] != null ? map['title'] as String : null,
+
       originalTitle:
           map['originalTitle'] != null ? map['originalTitle'] as String : null,
+
       overview: map['overview'] != null ? map['overview'] as String : null,
+
       posterPath:
           map['posterPath'] != null ? map['posterPath'] as String : null,
+
       mediaType: map['mediaType'] != null ? map['mediaType'] as String : null,
+
       adults: map['adults'] != null ? map['adults'] as bool : null,
+
       originalLanguage:
           map['originalLanguage'] != null
               ? map['originalLanguage'] as String
               : null,
+
       genreIds: List<int>.from((map['genreIds'] as List<int>)),
+
       popularity:
           map['popularity'] != null ? map['popularity'] as double : null,
+
       releaseDate:
           map['releaseDate'] != null
               ? DateTime.tryParse(map['releaseDate'])
               : null,
+
       video: map['video'] != null ? map['video'] as bool : null,
+
       voteAverage:
           map['voteAverage'] != null ? map['voteAverage'] as double : null,
+
       voteCount: map['voteCount'] != null ? map['voteCount'] as int : null,
+      
     );
   }
 

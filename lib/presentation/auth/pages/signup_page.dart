@@ -93,11 +93,13 @@ class _SigninPageState extends State<SignupPage> {
       title: 'Sign up',
       activeColor: AppColors.primary,
       onPressed: () async {
-       await  sl<SignupUsecase>().call(params: SignupReqParam(email: _email.text, password: _password.text));
+        await sl<SignupUsecase>().call(
+          params: SignupReqParam(email: _email.text, password: _password.text),
+        );
       },
       onSuccess: () {},
       onFailure: (error) {
-         DisplayMessage.errorMessage(error, context);
+        DisplayMessage.errorMessage(error, context);
       },
     );
   }

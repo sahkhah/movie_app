@@ -18,9 +18,7 @@ class AuthRepositoryImpl extends AuthRepository {
       (data) async {
         final sharedPref = await SharedPreferences.getInstance();
         sharedPref.setString('token', data['user']['token'] ?? '123456q2');
-        /*final sharedpref2 = await SharedPreferences.getInstance();
-         String? token = sharedpref2.getString('token');
-        print('The token of the user after sign up is: $token'); */
+       
         return Right(data);
       },
     );
@@ -36,9 +34,7 @@ class AuthRepositoryImpl extends AuthRepository {
       (data) async {
         final sharedPref = await SharedPreferences.getInstance();
         sharedPref.setString('token', data['user']['token'] ?? '123456q2');
-        /*final sharedpref2 = await SharedPreferences.getInstance();
-          String? token = sharedpref2.getString('token');
-        print('The token of the user after sign in is: $token'); */
+       
         return Right(data);
       },
     );
