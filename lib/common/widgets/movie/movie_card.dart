@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/common/helper/navigation/app_navigation.dart';
 import 'package:movie_app/core/config/assets/app_images.dart';
 import 'package:movie_app/core/config/theme/app_color.dart';
 import 'package:movie_app/domain/movies/entities/movies.dart';
+import 'package:movie_app/presentation/watch/pages/movie_watch.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieEntity movieEntity;
@@ -10,7 +12,12 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        AppNavigation.push(
+          context: context,
+          widget: MovieWatch(movieEntity: movieEntity),
+        );
+      },
       child: Container(
         width: 100,
         decoration: BoxDecoration(
@@ -27,7 +34,9 @@ class MovieCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   image: DecorationImage(
-                    image: NetworkImage(AppImages.movieImageBasePath + movieEntity.posterPath!),
+                    image: NetworkImage(
+                      AppImages.movieImageBasePath + movieEntity.posterPath!,
+                    ),
                     fit: BoxFit.fill,
                   ),
                   borderRadius: BorderRadius.only(
@@ -58,10 +67,10 @@ class MovieCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Icon(Icons.star, color: Colors.yellow,),
+                Icon(Icons.star, color: Colors.yellow),
                 Text(' ${movieEntity.voteAverage!.toStringAsFixed(1)}'),
               ],
-            )
+            ),
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:movie_app/common/helper/mapper/tv/tv_mapper.dart';
+import 'package:movie_app/common/helper/mapper/tv_mapper.dart';
 import 'package:movie_app/data/tv/models/tv_model.dart';
 import 'package:movie_app/data/tv/sources/tv_service.dart';
 import 'package:movie_app/domain/tv/repositories/tv.dart';
