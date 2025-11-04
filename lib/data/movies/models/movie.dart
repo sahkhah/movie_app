@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 class MovieModel {
-  final String? id;
+  final int? id;
   final String? title;
   final String? originalTitle;
   final String? overview;
@@ -55,7 +55,7 @@ class MovieModel {
 
   factory MovieModel.fromMap(Map<String, dynamic> map) {
     return MovieModel(
-      id: map['id'] != null ? map['id'] as String : null,
+      id: map['id'] != null ? map['id'] as int : null,
 
       title: map['title'] != null ? map['title'] as String : null,
 

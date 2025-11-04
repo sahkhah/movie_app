@@ -1,6 +1,6 @@
 
 class MovieEntity {
-  final String? id;
+  final int? id;
   final String? title;
   final String? originalTitle;
   final String? overview;

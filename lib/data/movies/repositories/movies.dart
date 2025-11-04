@@ -57,4 +57,23 @@ class MovieRepositoryImpl extends MovieRepository {
       },
     );
   }
+
+  @override
+  Future<Either> getRecommendationMovies(int movieId) async {
+    var returnedData = await sl<MovieApiService>().getRecommendationMovies(
+      movieId,
+    );
+    return returnedData.fold(
+      (error) {
+        return Left(error);
+      },
+      (data) {
+        var movies =
+            List.from(data['content']).map((element) {
+              return MovieMapper.toEntity(MovieModel.fromJson(element));
+            }).toList();
+        return Right(movies);
+      },
+    );
+  }
 }

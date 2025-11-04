@@ -13,6 +13,7 @@ import 'package:movie_app/domain/auth/usecases/signup.dart';
 import 'package:movie_app/domain/movies/repositories/movie.dart';
 import 'package:movie_app/domain/movies/usecases/get_movie_trailer.dart';
 import 'package:movie_app/domain/movies/usecases/get_now_playing_movies.dart';
+import 'package:movie_app/domain/movies/usecases/get_recommendation_movies.dart';
 import 'package:movie_app/domain/movies/usecases/get_trending_movies.dart';
 import 'package:movie_app/domain/tv/repositories/tv.dart';
 import 'package:movie_app/domain/tv/usecases/get_popular_tv.dart';
@@ -40,7 +41,12 @@ void setUpServiceLocator() {
   sl.registerSingleton<IsLoggedInUsecase>(IsLoggedInUsecase());
   //Usecase- movies
   sl.registerSingleton<GetTrendingMoviesUsecase>(GetTrendingMoviesUsecase());
-  sl.registerSingleton<GetNowPlayingMoviesUsecase>(GetNowPlayingMoviesUsecase());
+  sl.registerSingleton<GetNowPlayingMoviesUsecase>(
+    GetNowPlayingMoviesUsecase(),
+  );
   sl.registerSingleton<GetPopularTVUsecase>(GetPopularTVUsecase());
   sl.registerSingleton<GetMovieTrailerUsecase>(GetMovieTrailerUsecase());
+  sl.registerSingleton<GetRecommendationMoviesUsecase>(
+    GetRecommendationMoviesUsecase(),
+  );
 }
