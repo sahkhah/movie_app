@@ -18,3 +18,4 @@ class GenericDataCubit extends Cubit<GenericDataState> {
     );
   }
 }
+ 
