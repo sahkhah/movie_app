@@ -6,6 +6,7 @@ import 'package:movie_app/service_locator.dart';
 
 abstract class TVApiService {
   Future<Either> getPopularTV();
+  Future<Either> searchTV(String query);
 }
 
 class TVApiServiceImpl extends TVApiService {
@@ -13,6 +14,16 @@ class TVApiServiceImpl extends TVApiService {
   Future<Either> getPopularTV() async {
     try {
       var response = await sl<DioClient>().get(AppUrl.popularTV);
+      return Right(response.data);
+    } on DioException catch (e) {
+      return Left(e.response!.data['message']);
+    }
+  }
+
+  @override
+  Future<Either> searchTV(String query) async {
+    try {
+      final response = await sl<DioClient>().get('${AppUrl.search}/$query');
       return Right(response.data);
     } on DioException catch (e) {
       return Left(e.response!.data['message']);

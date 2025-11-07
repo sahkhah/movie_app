@@ -22,4 +22,21 @@ class TVRepositoryImpl extends TVRepository {
       },
     );
   }
+
+  @override
+  Future<Either> searchTV(String query) async {
+    final returnData = await sl<TVApiService>().searchTV(query);
+    return returnData.fold(
+      (error) {
+        return Left(error);
+      },
+      (data) {
+        final tv =
+            List.from(data['content']).map((element) {
+              return TVMapper.toEntity(TVModel.fromJson(element));
+            }).toList();
+        return Right(tv);
+      },
+    );
+  }
 }

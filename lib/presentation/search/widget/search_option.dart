@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:movie_app/core/config/theme/app_color.dart';
+import 'package:movie_app/presentation/search/bloc/search_cubit.dart';
 import 'package:movie_app/presentation/search/bloc/search_option_cubit.dart';
 
 class SearchOption extends StatelessWidget {
@@ -14,7 +15,13 @@ class SearchOption extends StatelessWidget {
         return Row(
           children: [
             GestureDetector(
-              onTap: () => context.read<SearchOptionCubit>().selectMovie(),
+              onTap: () {
+                context.read<SearchOptionCubit>().selectMovie();
+                context.read<SearchCubit>().search(
+                  context.read<SearchCubit>().controller.text,
+                  context.read<SearchOptionCubit>().state,
+                );
+              },
               child: Container(
                 decoration: BoxDecoration(
                   color:
@@ -29,7 +36,13 @@ class SearchOption extends StatelessWidget {
             ),
             Gap(20),
             GestureDetector(
-              onTap: () => context.read<SearchOptionCubit>().selectTV(),
+              onTap: () {
+                context.read<SearchOptionCubit>().selectTV();
+                 context.read<SearchCubit>().search(
+                  context.read<SearchCubit>().controller.text,
+                  context.read<SearchOptionCubit>().state,
+                );
+              },
               child: Container(
                 decoration: BoxDecoration(
                   color:
