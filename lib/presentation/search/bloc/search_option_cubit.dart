@@ -1,16 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-enum SearchType { movies, tV }
+enum SearchType { movies, tv }
 
 class SearchOptionCubit extends Cubit<SearchType> {
   SearchOptionCubit() : super(SearchType.movies);
 
-  void onClicked() {
-    switch (SearchType) {
-      case SearchType.movies:
-        emit(SearchType.movies);
-      case SearchType.tV:
-        emit(SearchType.tV);
-    }
-  }
+  void selectMovie() => emit(SearchType.movies);
+  void selectTV() => emit(SearchType.tv);
 }
